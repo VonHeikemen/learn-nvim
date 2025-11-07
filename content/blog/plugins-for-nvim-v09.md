@@ -37,7 +37,7 @@ Since there is no way to tell for how long they will support older Neovim versio
 
 ## Versions
 
-Last updated: 2025-10-19
+Last updated: 2025-11-05
 
 These already dropped support for `v0.9`. So, newer versions will no longer work.
 
@@ -50,6 +50,7 @@ These already dropped support for `v0.9`. So, newer versions will no longer work
 | nvim-lspconfig                | cb33dea610b7eff240985be9f6fe219920e630ef |
 | nvim-treesitter               | 42fc28ba918343ebfd5565147a42a26580579482 |
 | nvim-treesitter-textobjects   | 0f051e9813a36481f48ca1f833897210dbcfffde |
+| snacks.nvim                   | 3a8ecf591263e4706d9b3a45da590df914ea5505 |
 
 Newer version of these plugins might still work in `v0.9`.
 
@@ -64,7 +65,6 @@ Newer version of these plugins might still work in `v0.9`.
 | mini.nvim                     | e04b5c69e43a6387cb3d54b75635ee432f9b853a |
 | nvim-cmp                      | a7bcf1d88069fc67c9ace8a62ba480b8fe879025 |
 | nvim-ts-context-commentstring | 1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f |
-| snacks.nvim                   | a0df15ebcdbb540980f3dcc1795626dc134c656a |
 | tokyonight.nvim               | e63c42a42b11cd6225f009dd949b9ee0fccc15ef |
 | vim-fugitive                  | 61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4 |
 | vim-repeat                    | 65846025c15494983dafe5e3b46c8f88ab2e9635 |
