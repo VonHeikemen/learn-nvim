@@ -4,7 +4,7 @@ prev: false
 
 # Installing Neovim
 
-I will show some install methods you can try to get Neovim's latest stable version, `v0.11.4`. Released on `August 31, 2025`.
+I will show some install methods you can try to get Neovim's latest stable version, `v0.11.5`. Released on `November 2, 2025`.
 
 To avoid compatibility issues with "modern plugins" make sure you are on the latest stable. That said, a good number of popular plugins can still [work in v0.9.5](../blog/plugins-for-nvim-v09). And plugins that are compatible with Vim 8 should work just fine in Vim and Neovim.
 
