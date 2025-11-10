@@ -33,11 +33,12 @@ Since there is no way to tell for how long they will support older Neovim versio
 | [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)                                         | nvim-cmp source. Show suggestions based on LSP servers queries.       |
 | [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)                            | Collection of snippets.                                               |
 | [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) | It helps detect comment syntax.                                       |
+| [which-key.nvim](https://github.com/folke/which-key.nvim)                                       | Provide clues for keymaps.                                            |
 
 
 ## Versions
 
-Last updated: 2025-11-05
+Last updated: 2025-11-10
 
 These already dropped support for `v0.9`. So, newer versions will no longer work.
 
@@ -61,11 +62,12 @@ Newer version of these plugins might still work in `v0.9`.
 | cmp-mini-snippets             | 582aea215ce2e65b880e0d23585c20863fbb7604 |
 | cmp-path                      | c642487086dbd9a93160e1679a1327be111cbc25 |
 | friendly-snippets             | 572f5660cf05f8cd8834e096d7b4c921ba18e175 |
-| lazy.nvim                     | 6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a |
-| mini.nvim                     | e04b5c69e43a6387cb3d54b75635ee432f9b853a |
-| nvim-cmp                      | a7bcf1d88069fc67c9ace8a62ba480b8fe879025 |
+| lazy.nvim                     | 85c7ff3711b730b4030d03144f6db6375044ae82 |
+| mini.nvim                     | 68d4478920c7afdfa21c13706464e275d9ce3255 |
+| nvim-cmp                      | 106c4bcc053a5da783bf4a9d907b6f22485c2ea0 |
 | nvim-ts-context-commentstring | 1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f |
-| tokyonight.nvim               | e63c42a42b11cd6225f009dd949b9ee0fccc15ef |
+| tokyonight.nvim               | 5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd |
 | vim-fugitive                  | 61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4 |
 | vim-repeat                    | 65846025c15494983dafe5e3b46c8f88ab2e9635 |
+| which-key                     | 3aab2147e74890957785941f0c1ad87d0a44c15a |
 
