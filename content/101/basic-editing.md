@@ -129,7 +129,7 @@ The `.` keymap repeats the most recent command. For example, if we delete a word
 
 ## Copy and paste
 
-Vim has its own mechanism to copy and paste. When we copy something using the `y` keymap (by default) that goes into a register. And when we try to paste using the `p` keymap, it'll use the same register. In other words, Vim will ignore the system clipboard.
+Vim has its own mechanism to copy and paste. When we copy something using the `y` keymap (by default) that goes into a register. And when we try to paste using the `p` keymap it'll use the same register. In other words, Vim will ignore the system clipboard.
 
 If we want to use the system clipboard there are two options:
 

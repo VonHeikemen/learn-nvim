@@ -97,7 +97,7 @@ Not every package manager will have the latest Neovim available in its official 
 
 If we want to have a configuration that's backwards compatible is a good idea to check Neovim's version before using a feature that we know is only available in newer versions.
 
-Here's an example using a new colorscheme called `retrobox`.
+Here's an example using a new color scheme called `retrobox`.
 
 ```vim
 if has('nvim-0.10')

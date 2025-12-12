@@ -12,7 +12,7 @@ The documentation says...
 
 > A Vim "package" is a directory that contains plugins.
 
-But the story doesn't end there. There are two types of packages: optional and automatically loaded. And as many other things in Vim, packages need to follow a specific file structure. Imaging this.
+But the story doesn't end there. There are two types of packages: optional and automatically loaded. And as many other things in Vim, packages need to follow a specific file structure. Imagine this.
 
 ```txt
 example

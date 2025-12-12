@@ -8,7 +8,7 @@ I will assume you know nothing about programming and I will try to explain some 
 
 In programming a lot of it is figuring out what part of the code you can change and what things should always be the same.
 
-I recommend that after you learn the correct method to do something, find out what happens when you do it wrong. Introduce an error and then fix it. This way you'll be able to fix common errors in a short amount of time.
+I recommend that after you learn the correct method to do something find out what happens when you do it wrong. Introduce an error and then fix it. This way you'll be able to fix common errors in a short amount of time.
 
 ## Executing lua code
 
@@ -141,7 +141,7 @@ local points
 print(points + 1)
 ```
 
-This is a common mistake. It is valid lua code, but the expression inside the `print()` function is wrong. `points` doesn't store a number. It's empty.
+This is a common mistake. It is valid lua code but the expression inside the `print()` function is wrong. `points` doesn't store a number. It's empty.
 
 If you try to execute that snippet of code you'll get an error message. Reading those things is a skill on its own because you get hit by a wall of text. But in that wall there is always a "human readable" message. In this specific case we get:
 
@@ -186,11 +186,11 @@ local points = funny_sum(3, 4)
 
 If we create a local variable inside a function then it only "exists" during the execution of the function. So is only accessible to the code inside the function.
 
-In that snippet, the local variable `the_number_two` can only be used inside the function `funny_sum`.
+In that snippet the local variable `the_number_two` can only be used inside the function `funny_sum`.
 
 Technically `first_number` and `second_number` are also local variables. But we call these "function parameters."
 
-And when we provide data to a function, we call that "arguments."
+And when we provide data to a function we call that "arguments."
 
 ```lua
 local points = 1 + 1
@@ -248,7 +248,7 @@ print(Knight.points + 1)
 
 A global variable is a piece of data that is accessible in multiple files.
 
-The lua interpreter defines global variables we can use. If you know their names, you can just use it.
+The lua interpreter defines global variables we can use. If you know their names you can just use it.
 
 ```lua
 local smallest_number = math.min(9, 7, 11)
@@ -270,7 +270,7 @@ If we omit `local` keyword we create a global variable. So this `Print` function
 
 I called this global variable `Print` to highlight a potential problem: It is possible to override an existing global variable. And that's bad.
 
-For example, if you were to create your own `math` global variable, a lot of things will fail. Don't do that.
+For example, if you were to create your own `math` global variable a lot of things will fail. Don't do that.
 
 ## Meta tables
 
