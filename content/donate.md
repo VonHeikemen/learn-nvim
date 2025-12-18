@@ -15,9 +15,11 @@ If you would like to help support Neovim's development consider becoming a spons
 
 ## Vim charity
 
-Vim is Charityware.  You are encouraged to make a donation for needy children in Uganda. Visit the ICCF web site, available at these URLs:
+Vim is Charityware. You are encouraged to make a donation for needy children in Uganda. Visit the Kuwasha web site, available at the following URL:
 
-* http://iccf-holland.org/
-* http://www.vim.org/iccf/
-* http://www.iccf.nl/
+* https://www.kuwasha.net
+
+You can find more details in Neovim's documentation site at:
+
+* [neovim/doc/user/uganda#charity](https://neovim.io/doc/user/uganda.html#charity)
 

@@ -12,7 +12,7 @@ export default defineConfig({
       provider: 'local',
     },
     nav: [
-      {text: 'Support', link: '/support'},
+      {text: 'Donate', link: '/donate'},
     ],
 
     sidebar: sidebar(),
