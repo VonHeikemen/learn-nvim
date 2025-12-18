@@ -81,11 +81,67 @@ In some cases the query is the component that powers a specific feature. The syn
 
 The overall idea of this plugin is to make it easier to use treesitter within Neovim. Starting with the treesitter parsers, `nvim-treesitter` provides the command `:TSInstall` so we can add new treesitter parsers. Additionally, it provides queries for highlights, indents and folds.
 
-When it comes to features it really depends on which version of `nvim-treesitter` is being used. There is a new rewrite being developed on the [main branch](https://github.com/nvim-treesitter/nvim-treesitter/tree/main), this one only implements indents. The implementation for highlights and folds are already part of Neovim v0.11.
+When it comes to features it really depends on our Neovim version.
 
-The older versions of `nvim-treesitter` in the [master branch](https://github.com/nvim-treesitter/nvim-treesitter/tree/master) had special modules to enable highlights, indents, folds and incremental selection. Is worth mention that the last version in the master branch is compatible with Neovim v0.9 all the way to v0.11. If you are using Neovim v0.7, I recommend using the [tag v0.7.2](https://github.com/nvim-treesitter/nvim-treesitter/tree/v0.7.2).
+### On Neovim v0.11+
 
-**IMPORTANT**: If you decide to use this plugin read carefully the instructions on the `README.md` file, specially the requirements. Right now (July 2025) the `master branch` is the default. This means third-party plugin managers will probably download the "old version" if you don't specify a branch. So, whatever method you choose to download this plugin, always specify a branch.
+The most recent version of `nvim-treesitter` targets Neovim v0.11 and greater. In this case the implementation for highlights and folds lives inside Neovim itself. Indents is still considered experimental so the code that implements the feature is inside `nvim-treesitter`.
 
-To recap, `nvim-treesitter` is a plugin that give us easy access to treesitter parsers and queries. Things that we need to enable "treesitter support" for a given programming language. And it also serves as a testing ground for new features based on treesitter, which may be included in Neovim at some point in the future.
+Here we supposed to enable each feature per language. So we could use either a [filetype plugin](./filetype-plugin) or an [autocommand](/101/from-vimscript-to-lua.html#create-autocommands).
+
+And this is the kind of code we would have to write.
+
+```vim
+" enable syntax highlight
+lua vim.treesitter.start()
+
+" enable folds
+setlocal foldexpr=v:lua.vim.treesitter.foldexpr()
+setlocal foldmethod=expr
+
+" enable indents
+setlocal indentexpr=v:lua.require'nvim-treesitter'.indentexpr()
+```
+
+I'm writting this in vimscript just to show is possible.
+
+This is equivalent in lua:
+
+```lua
+-- enable syntax highlight
+vim.treesitter.start()
+
+-- enable folds
+vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo[0][0].foldmethod = 'expr'
+
+-- enable indents
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+```
+
+Notice that we are working with lua functions, window options, buffer options, autocommands, and some other details. So you do need to be familiar with how Neovim works in order to use these features.
+
+### On older Neovim versions
+
+On Neovim v0.9 and v0.10 we'll have to use [nvim-treesitter v0.10.0](https://github.com/nvim-treesitter/nvim-treesitter/tree/v0.10.0).
+
+On this particular version of `nvim-treesitter` we enable highlights and indents by calling a function during Neovim's initialization process.
+
+```lua
+require('nvim-treesitter.configs').setup({
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
+})
+```
+
+The folds feature has to be enabled by setting the `foldexpr` option. This could be in an autocommand or a filetype plugin.
+
+```lua
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldmethod = 'expr'
+```
 
