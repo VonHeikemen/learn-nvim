@@ -4,7 +4,7 @@ Here we are going to talk about two features: [Vim packages](https://neovim.io/d
 
 **Vim package** is the mechanism used in Vim to include a plugin into the [runtimepath](https://neovim.io/doc/user/options.html#'runtimepath'). This means the possibility to use a plugin *without a plugin manager* exists in Vim and Neovim.
 
-**vim.pack** is a Neovim feature, a plugin manager that is currently under development. It is not available in any stable release yet. If you want to test it you'll need to compile Neovim from source or download a [nightly version](https://github.com/neovim/neovim/releases/tag/nightly) .
+**vim.pack** is a Neovim feature, a plugin manager. Do note is only available on **Neovim v0.12** or greater.
 
 ## Vim package
 
@@ -47,18 +47,18 @@ Let's try to setup an example:
 
 Usually our Neovim config directory is already included in the `packpath` list. This can be a valid location for packages.
 
-Inside `pack` we need to create the top level directory that will contain the `opt` and `start` directories. I want to call this `vendor` (you can choose any name). So, depending on the operating system it could be in one of these paths:
+Inside `pack` we need to create the top level directory that will contain the `opt` and `start` directories. I want to call this `bundle` (you can choose any name). So, depending on the operating system it could be in one of these paths:
 
 ```txt
-~/.config/nvim/pack/vendor/         (Unix and OSX)
-~/AppData/Local/nvim/pack/vendor/   (Windows)
+~/.config/nvim/pack/bundle/         (Unix and OSX)
+~/AppData/Local/nvim/pack/bundle/   (Windows)
 ```
 
 Let's pretend we are on a linux system and we want to install [tokyonight.nvim](https://github.com/folke/tokyonight.nvim), which is a fancy color scheme. All we have to do is execute this command on our terminal.
 
 ```sh
 git clone https://github.com/folke/tokyonight.nvim \
-  ~/.config/nvim/pack/vendor/start/tokyonight.nvim
+  ~/.config/nvim/pack/bundle/start/tokyonight.nvim
 ```
 
 After we download a plugin we should generate the help tags, so the `:help` command can find the documentation of the plugin.
@@ -71,11 +71,9 @@ And that's it. Now `tokyonight.nvim` will be available to us.
 
 ## Built-in plugin manager
 
-> Note: this is an experimental feature still under development.
-
 The Vim package mechanism has a very limited scope. It's only goal is to make the editor aware that a plugin exists. The burden of management is on the **user**. How to install a new plugin? How to update a plugin? How to delete a plugin? **You** need to find the solution to all those problems.
 
-On Neovim `v0.12` there will be a plugin manager in the form of a lua module. This will be under the `vim` global, in a table field called `pack`. In a lua file we could do something like this.
+On Neovim `v0.12` there is a plugin manager in the form of a lua module. This will be under the `vim` global, in a table field called `pack`. In a lua file we could do something like this.
 
 ```lua
 vim.pack.add({
@@ -124,7 +122,7 @@ call v:lua.vim.pack.add([
 \])
 ```
 
-Notice here we use a regular vimscript array, and that will be converted to a lua table internally. If you need to use a plugin spec then you use a vimscript object.
+Notice here we use a regular vimscript array, and that will be converted to a lua table internally. If you need to use a plugin spec then you use a vimscript dictionary.
 
 ```vim
 call v:lua.vim.pack.add([
@@ -133,11 +131,11 @@ call v:lua.vim.pack.add([
 \])
 ```
 
-Be aware that `:lua` is a command and `v:lua` is a variable. They are different and expect different syntax.
+Be aware that `:lua` is a command and `v:lua` is an expression. They are different and expect different syntax.
 
 ## Preparing for the future
 
-As mentioned before `vim.pack` is not available in any stable release just yet. And for some linux users it will take a couple of years before is available in their package managers. For example, any system based on Debian stable will only have Neovim `v0.10`. In this case if you want to use a plugin manager I recommend [mini.deps](https://nvim-mini.org/mini.nvim/doc/mini-deps.html).
+For some linux users it will take a couple of years before Neovim `v0.12` is available in their package managers. For example, any system based on Debian stable will only have Neovim `v0.10`. In this case if you want to use a plugin manager I recommend [mini.deps](https://nvim-mini.org/mini.nvim/doc/mini-deps.html).
 
 The design of `vim.pack` is actually based on `mini.deps`. Because of this I believe the transition from `mini.deps` to `vim.pack` should be fairly simple. So you can start using `mini.deps` right now and then migrate to the native solution whenever you have the chance.
 
@@ -216,7 +214,6 @@ end
 MiniDeps.setup({})
 
 -- NOTE: these are just example plugins.
--- You don't have to actually install them.
 MiniDeps.add('neovim/nvim-lspconfig')
 MiniDeps.add({
   source = 'nvim-mini/mini.nvim',
