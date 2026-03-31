@@ -4,7 +4,7 @@ prev: false
 
 # Installing Neovim
 
-I will show some install methods you can try to get Neovim's latest stable version, `v0.11.6`. Released on `January 26, 2026`.
+I will show some install methods you can try to get Neovim's latest stable version, `v0.12`. Released on `March 29, 2026`.
 
 To avoid compatibility issues with "modern plugins" make sure you are on the latest stable. That said, a good number of popular plugins can still [work in v0.9.5](../blog/plugins-for-nvim-v09). And plugins that are compatible with Vim 8 should work just fine in Vim and Neovim.
 
@@ -14,11 +14,19 @@ To avoid compatibility issues with "modern plugins" make sure you are on the lat
 winget install Neovim.Neovim
 ```
 
+In [winstall.app/apps/Neovim](https://winstall.app/apps/Neovim.Neovim) you can find information about the `Neovim` package in winget.
+
+If you want to compile Neovim from source see: [Building on windows](https://neovim.io/doc/build/#building-on-windows).
+
 ## macOS
 
 ```sh
 brew install neovim
 ```
+
+In [formulae.brew.sh/formula/neovim](https://formulae.brew.sh/formula/neovim#default) you can find information about the `neovim` package in homebrew.
+
+If you want to compile from source first install the [build dependencies](https://neovim.io/doc/build/#macos) then follow the steps on [build from source](#build-from-source), start from step 2.
 
 ## Linux
 
