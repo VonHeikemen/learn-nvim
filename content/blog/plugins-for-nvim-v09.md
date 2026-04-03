@@ -38,7 +38,7 @@ Since there is no way to tell for how long they will support older Neovim versio
 
 ## Versions
 
-Last updated: 2026-03-30
+Last updated: 2026-04-03
 
 These already dropped support for `v0.9`. So, newer versions will no longer work.
 
@@ -47,6 +47,7 @@ These already dropped support for `v0.9`. So, newer versions will no longer work
 | gitsigns.nvim                 | ee28ba3e70ecea811b8f6d7b51d81976e94b121c |
 | mason-lspconfig.nvim          | 1a31f824b9cd5bc6f342fc29e9a53b60d74af245 |
 | mason.nvim                    | fc98833b6da5de5a9c5b1446ac541577059555be |
+| mini.nvim                     | 3923662bf3d6ca49a9503f8d7196ea0450983e6a |
 | nvim-lspconfig                | cb33dea610b7eff240985be9f6fe219920e630ef |
 | nvim-treesitter               | 42fc28ba918343ebfd5565147a42a26580579482 |
 | nvim-treesitter-textobjects   | 0f051e9813a36481f48ca1f833897210dbcfffde |
@@ -63,7 +64,6 @@ Newer version of these plugins might still work in `v0.9`.
 | cmp-path                      | c642487086dbd9a93160e1679a1327be111cbc25 |
 | friendly-snippets             | 6cd7280adead7f586db6fccbd15d2cac7e2188b9 |
 | lazy.nvim                     | 85c7ff3711b730b4030d03144f6db6375044ae82 |
-| mini.nvim                     | af5f75c9ce572a4d1f0c77d6fb4ea764d16c1b3c |
 | nvim-cmp                      | a1d504892f2bc56c2e79b65c6faded2fd21f3eca |
 | nvim-ts-context-commentstring | 1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f |
 | tokyonight.nvim               | cdc07ac78467a233fd62c493de29a17e0cf2b2b6 |
