@@ -157,7 +157,7 @@ git clone --filter=blob:none https://github.com/nvim-mini/mini.nvim
 
 If you are using **Neovim v0.9** make sure to pin to the commit [3923662](https://github.com/nvim-mini/mini.nvim/tree/3923662bf3d6ca49a9503f8d7196ea0450983e6a) since that's the last version that supports it.
 
-```
+```sh
 git switch --detach 3923662bf3d6ca49a9503f8d7196ea0450983e6a
 ```
 
