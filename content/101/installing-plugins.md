@@ -155,6 +155,12 @@ Now download `mini.nvim` with this command.
 git clone --filter=blob:none https://github.com/nvim-mini/mini.nvim
 ```
 
+If you are using **Neovim v0.9** make sure to pin to the commit [3923662](https://github.com/nvim-mini/mini.nvim/tree/3923662bf3d6ca49a9503f8d7196ea0450983e6a) since that's the last version that supports it.
+
+```
+git switch --detach 3923662bf3d6ca49a9503f8d7196ea0450983e6a
+```
+
 The last step is to generate the help tags.
 
 ```sh
@@ -193,13 +199,23 @@ In `mini.deps` the `.add()` function can only handle one plugin. If we want more
 
 ```lua
 MiniDeps.add('neovim/nvim-lspconfig')
+MiniDeps.add('nvim-mini/mini.nvim')
+```
+
+Notice here that `github` links have a special treatment, we don't have to write the entire URL, just the user (or organization) and the name of the repository. 
+
+We do have to be careful with `mini.nvim`, if we are using Neovim v0.9 we would want to "freeze" the plugin so it doesn't receive updates that break the editor. So we should do something like this:
+
+```lua
 MiniDeps.add({
   source = 'nvim-mini/mini.nvim',
-  checkout = 'main',
+  checkout = vim.fn.has('nvim-0.10') == 1 and 'main' or 'HEAD'
 })
 ```
 
-Notice here that `github` links have a special treatment, we don't have to write the entire URL, just the user (or organization) and the name of the repository. Also, the plugin spec is different. Instead of `src` we use `source`, instead of `version` we have `checkout`.
+Here if we detect that we are using Neovim v0.10 or greater then `checkout` will reference the `main` branch. Otherwise it'll reference `HEAD` which always points to the current commit, so this will make the plugin skip any updates and stay "frozen" in the current state.
+
+Also, notice the plugin spec is different from the one in `vim.pack`. Instead of `src` we use `source`, instead of `version` we have `checkout`.
 
 Now, if we put everything together we would end up with something like this in our personal configuration.
 
@@ -213,11 +229,10 @@ end
 -- See :help MiniDeps.config
 MiniDeps.setup({})
 
--- NOTE: these are just example plugins.
 MiniDeps.add('neovim/nvim-lspconfig')
 MiniDeps.add({
   source = 'nvim-mini/mini.nvim',
-  checkout = 'main',
+  checkout = vim.fn.has('nvim-0.10') == 1 and 'main' or 'HEAD'
 })
 ```
 
