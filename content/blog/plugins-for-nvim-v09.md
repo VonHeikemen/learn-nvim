@@ -38,7 +38,7 @@ Since there is no way to tell for how long they will support older Neovim versio
 
 ## Versions
 
-Last updated: 2026-04-03
+Last updated: 2026-04-19
 
 These already dropped support for `v0.9`. So, newer versions will no longer work.
 
@@ -65,7 +65,7 @@ Newer version of these plugins might still work in `v0.9`.
 | friendly-snippets             | 6cd7280adead7f586db6fccbd15d2cac7e2188b9 |
 | lazy.nvim                     | 85c7ff3711b730b4030d03144f6db6375044ae82 |
 | nvim-cmp                      | a1d504892f2bc56c2e79b65c6faded2fd21f3eca |
-| nvim-ts-context-commentstring | 1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f |
+| nvim-ts-context-commentstring | 6141a40173c6efa98242dc951ed4b6f892c97027 |
 | tokyonight.nvim               | cdc07ac78467a233fd62c493de29a17e0cf2b2b6 |
 | vim-fugitive                  | 3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0 |
 | vim-repeat                    | 65846025c15494983dafe5e3b46c8f88ab2e9635 |
