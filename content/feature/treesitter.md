@@ -43,7 +43,7 @@ Hopefully these examples showcase the value of Neovim's treesitter integration. 
 
 This is where things get interesting.
 
-Treesitter doesn't have support for any language by default. Is not like the developers of the treesitter have to add support for a specific language. They decided to make it modular in a way. So there are three components to treesitter: parsers, queries and the library.
+Treesitter doesn't have support for any language by default. Is not like the developers of treesitter have to add support for a specific language. They decided to make it modular in a way. So there are three components to treesitter: parsers, queries and the library.
 
 ### Treesitter library
 
@@ -131,7 +131,7 @@ Notice how these two features we enabled come from `vim.treesitter`. This means 
 
 ## Treesitter without plugins
 
-Some people seem to think treesitter features were introduced in Neovim **v0.12**. That's just not true. [vim.treesitter.start()](https://neovim.io/doc/user/treesitter/#vim.treesitter.start()) and [vim.treesitter.foldexpr()](https://neovim.io/doc/user/treesitter/#vim.treesitter.foldexpr()) were introduced in Neovim **v0.9**. So a life without nvim-treesitter has been a possibility since april 2022. We just have to know how to install a parser.
+Some people seem to think treesitter features were introduced in Neovim **v0.12**. That's just not true. [vim.treesitter.start()](https://neovim.io/doc/user/treesitter/#vim.treesitter.start()) and [vim.treesitter.foldexpr()](https://neovim.io/doc/user/treesitter/#vim.treesitter.foldexpr()) were introduced in Neovim **v0.9**. So using treesitter without plugins has been a possibility since april 2022. We just have to know how to install a parser.
 
 To compile a parser we need [treesitter's CLI tool](https://github.com/tree-sitter/tree-sitter) and a C compiler available in our system.
 
@@ -155,7 +155,7 @@ And this is were we compile the parser using the CLI tool. In most cases this co
 tree-sitter build -o parser.so
 ```
 
-Once the parser has been compiled we can move it to a directory in [Neovim's runtimepath](/feature/global-plugin#the-runtimepath). Our Neovim config directory can be an option.
+Once the parser has been compiled we can move it to a directory in Neovim's [runtimepath](/feature/global-plugin#the-runtimepath). Our Neovim config directory can be an option.
 
 ```sh
 cp ./parser.so ~/.config/nvim/parser/bash.so
@@ -171,7 +171,7 @@ vim.treesitter.language.register('bash', {'sh'})
 
 Here we are saying we want to use the `bash` parser whenever we encounter the filetype `sh`.
 
-Now we need the query files that will power the features we want to enable. Some parser do have query files included in the source code. Notice in the bash repository there is a directory called [queries](https://github.com/tree-sitter/tree-sitter-bash/tree/a06c2e4415e9bc0346c6b86d401879ffb44058f7/queries). We can use that if we want.
+Now we need the query files that will power the features we want to enable. Some parsers do have query files included in the source code. Notice in the bash repository there is a directory called [queries](https://github.com/tree-sitter/tree-sitter-bash/tree/a06c2e4415e9bc0346c6b86d401879ffb44058f7/queries). We can use that if we want.
 
 ```sh
 cp ./queries/highlights.scm ~/.config/nvim/queries/bash/highlights.scm
@@ -181,7 +181,7 @@ Query files must be located in a directory called `queries`. And the specific qu
 
 Do note that query files that come with the parser source code are generic. They should work but there is no guarantee. Remember that queries are tied to the specific implementation of a feature. See for example [queries/highlights.scm](https://github.com/tree-sitter/tree-sitter-bash/blob/a06c2e4415e9bc0346c6b86d401879ffb44058f7/queries/highlights.scm) in the bash parser. And compare that to the queries provided by nvim-treesitter in [runtime/queries/bash/highlights.scm](https://github.com/nvim-treesitter/nvim-treesitter/blob/4916d6592ede8c07973490d9322f187e07dfefac/runtime/queries/bash/highlights.scm). The one in nvim-treesitter has a lot more information and is aware of the convention Neovim uses for highlight groups. The one in the bash parser uses generic names and is smaller in size.
 
-Anyway, now that we have the parser library compiled and the query file for highlights in place is time to enable the feature in Neovim. For this we just have to execute the function `vim.treesitter.start()` after the `FileType` event.
+Back to Neovim, now that we have the parser library compiled and the query file for highlights in place is time to enable the feature. For this we just have to execute the function `vim.treesitter.start()` after the `FileType` event.
 
 This is how we do it in lua.
 
@@ -200,7 +200,7 @@ And this is the equivalent in vimscript.
 autocmd FileType sh lua vim.treesitter.start()
 ```
 
-If you are wondering why we only enable highlights and not code folding, that is because the bash parser does not have queries for code folding. We would have to copy the query file from nvim-treesitter ([runtime/queries/bash/folds.scm](https://github.com/nvim-treesitter/nvim-treesitter/blob/main/runtime/queries/bash/folds.scm)) if we want to make `vim.treesitter.foldexpr()` work.
+If you are wondering why we only enable highlights and not code folding, that is because the bash parser does not have queries for code folding. We would have to copy the query file from nvim-treesitter ([runtime/queries/bash/folds.scm](https://github.com/nvim-treesitter/nvim-treesitter/blob/4916d6592ede8c07973490d9322f187e07dfefac/runtime/queries/bash/folds.scm)) if we want to make `vim.treesitter.foldexpr()` work.
 
 And this is it. That's all you need to know to make treesitter work in Neovim.
 
