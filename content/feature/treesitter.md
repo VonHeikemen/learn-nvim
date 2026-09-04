@@ -81,7 +81,7 @@ In some cases the query is the component that powers a specific feature. The syn
 
 The overall idea of this plugin was to make it easier to use treesitter within Neovim. Starting with the treesitter parsers, `nvim-treesitter` provides the command `:TSInstall` so we can add new treesitter parsers. Additionally, it provides queries for highlights, indents and folds.
 
-On april 2026 the plugin was archived. The Neovim team [is planning something](https://github.com/neovim/neovim/issues/39006) to replace it, but we will have to wait before something concrete happens.
+On 2025 the plugin had a big rewrite and a lot features were removed. Now the plugin is only focused on installing parsers and providing queries files. The experimental features that were considered stable were upstreamed to Neovim. The special configuration modules in nvim-treesitter were also removed.
 
 In its current state nvim-treesitter is only compatible with Neovim **v0.12**. And its usage is pretty simple:
 
